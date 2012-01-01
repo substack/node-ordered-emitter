@@ -41,6 +41,13 @@ output:
 { order: 4 }
 ```
 
+methods
+=======
+
+`OrderedEmitter` acts just like an EventEmitter, except that any event that
+emits objects as its first argument with numeric `order` keys will be buffered
+so that the events will be emitted in order.
+
 install
 =======
 
