@@ -20,7 +20,7 @@ OrderedEmitter.prototype.emit = function (evName, obj) {
     
     var queue = this._eventQueue;
     var next = this._next;
-    var name = this.options.multiEvent ? '*' : evName;
+    var name = this.options.span ? '*' : evName;
     
     if (typeof obj === 'object' && obj !== null
     && typeof obj.order === 'number') {
