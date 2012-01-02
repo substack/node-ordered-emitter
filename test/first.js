@@ -1,7 +1,7 @@
 var test = require('tap').test;
 var OrderedEmitter = require('../');
 
-test('verify order', function (t) {
+test('first object ready', function (t) {
     var em = new OrderedEmitter;
     
     var events = [
