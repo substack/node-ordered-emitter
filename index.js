@@ -27,7 +27,7 @@ OrderedEmitter.prototype.emit = function (name, obj) {
             next[name] ++;
             emit();
             
-            while (queue[name][next[name]]) {
+            while (queue[name] && queue[name][next[name]]) {
                 queue[name][next[name]]();
                 delete queue[name][next[name]];
                 next[name] ++;
