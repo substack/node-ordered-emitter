@@ -2,7 +2,7 @@ var test = require('tap').test;
 var OrderedEmitter = require('../');
 
 test('verify order', function (t) {
-    var em = new OrderedEmitter;
+    var em = new OrderedEmitter({ multiEvent : true });
     
     var events = [
         [ 'baz', { order : 2 } ],
@@ -21,7 +21,7 @@ test('verify order', function (t) {
             em.emit('end');
         }
         else {
-            em.emit('data', ev);
+            em.emit(ev[0], ev[1]);
         }
     }, 5);
     

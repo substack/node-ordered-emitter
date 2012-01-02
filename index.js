@@ -3,21 +3,24 @@ var util = require('util');
 
 module.exports = OrderedEmitter;
 
-function OrderedEmitter () {
+function OrderedEmitter (opts) {
     EventEmitter.call(this);
+    if (!opts) opts = {};
     
     this._eventQueue = {};
     this._next = {};
+    this.options = opts;
 }
 OrderedEmitter.prototype = new EventEmitter;
 
-OrderedEmitter.prototype.emit = function (name, obj) {
+OrderedEmitter.prototype.emit = function (evName, obj) {
     var emit = function (args) {
         EventEmitter.prototype.emit.apply(this, args);
     }.bind(this, arguments);
     
     var queue = this._eventQueue;
     var next = this._next;
+    var name = this.options.multiEvent ? '*' : evName;
     
     if (typeof obj === 'object' && obj !== null
     && typeof obj.order === 'number') {
