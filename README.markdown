@@ -83,8 +83,8 @@ methods
 
 var OrderedEmitter = require('ordered-emitter');
 
-new OrderedEmitter(opts={})
----------------------------
+var em = new OrderedEmitter(opts={})
+------------------------------------
 
 `OrderedEmitter` acts just like an EventEmitter, except that any event that
 emits objects as its first argument with numeric `order` keys will be buffered
@@ -93,6 +93,13 @@ so that the events will be emitted in order.
 By default, order keys are isolated by event names so the order keys from
 different event names won't influence each other. However, you can have order
 keys work across multiple event names by setting `opts.span` to `true`.
+
+em.reset(eventName)
+-------------------
+
+Reset the counter for an ordered emitter back to 0.
+
+If `eventName` is `undefined`, reset all the counters to 0.
 
 install
 =======
