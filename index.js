@@ -13,6 +13,15 @@ function OrderedEmitter (opts) {
 }
 OrderedEmitter.prototype = new EventEmitter;
 
+OrderedEmitter.prototype.reset = function (evName) {
+    if (evName === undefined) {
+        this._next = {};
+    }
+    else {
+        this._next[evName] = 0;
+    }
+};
+
 OrderedEmitter.prototype.emit = function (evName, obj) {
     var emit = function (args) {
         EventEmitter.prototype.emit.apply(this, args);
