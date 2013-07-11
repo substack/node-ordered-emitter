@@ -1,5 +1,5 @@
 var EventEmitter = require('events').EventEmitter;
-var util = require('util');
+var inherits = require('util').inherits;
 
 module.exports = OrderedEmitter;
 
@@ -11,7 +11,7 @@ function OrderedEmitter (opts) {
     this._next = {};
     this.options = opts;
 }
-OrderedEmitter.prototype = new EventEmitter;
+inherits(OrderedEmitter, EventEmitter);
 
 OrderedEmitter.prototype.reset = function (evName) {
     if (evName === undefined) {
