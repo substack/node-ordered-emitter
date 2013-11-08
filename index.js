@@ -22,6 +22,15 @@ OrderedEmitter.prototype.reset = function (evName) {
     }
 };
 
+OrderedEmitter.prototype.clear = function (evName) {
+    if (evName === undefined) {
+        this._eventQueue = {};
+    }
+    else {
+        this._eventQueue[evName] = {};
+    }
+};
+
 OrderedEmitter.prototype.emit = function (evName, obj) {
     var emit = function (args) {
         EventEmitter.prototype.emit.apply(this, args);
