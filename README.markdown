@@ -101,6 +101,13 @@ Reset the counter for an ordered emitter back to 0.
 
 If `eventName` is `undefined`, reset all the counters to 0.
 
+em.clear(eventName)
+-------------------
+
+Clears the event queue for an ordered emitter.
+
+If `eventName` is `undefined`, clear all the event queues.
+
 install
 =======
 
