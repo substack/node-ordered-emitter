@@ -1,6 +1,6 @@
 {
     "name" : "ordered-emitter",
-    "version" : "0.1.1",
+    "version" : "1.0.0",
     "description" : "emit events in order",
     "main" : "index.js",
     "directories" : {
